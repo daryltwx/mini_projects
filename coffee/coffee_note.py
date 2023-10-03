@@ -1,7 +1,7 @@
 from menu import MENU, resources
 
-money = 0.0
 
+resources["money"] = 0.0
 
 
 # Step 1. Get user's choice
@@ -10,7 +10,7 @@ def main():
         choice = input("What would you like? (espresso/latte/cappuccino): ").lower().strip()
         match choice:
             case "report":
-                get_report(money)
+                get_report()
             case "off":
                 exit()
             case "espresso" | "latte" | "cappuccino":
@@ -19,17 +19,19 @@ def main():
                     if check_payment(payment, choice):
                         change = "{:.2f}".format(give_change(payment, choice))
                         print(f"Here is ${change} dollars in change.")
-                        update_resources(money, choice)
-                        print("Here is your latte. Enjoy!")
+                        update_resources(choice)
+                        
+                        print(f"Here is your {choice}. Enjoy!")
                     else:
                         print("Sorry that's not enough money. Money refunded.")
                 else:
-                    print("Sorry there is not enough something. ")
+                    materials = lack_of_resources(choice)
+                    print(f"Sorry there is not enough {materials}. ")
             case _:
                 print("Stop fooling around.")
 
     
-def get_report(money):
+def get_report():
     """
     Give a break down of available resources.
 
@@ -39,6 +41,7 @@ def get_report(money):
     water = resources["water"]
     milk = resources["milk"]
     coffee = resources["coffee"]
+    money = resources["money"]
 
     print(f"Water: {water}ml \nMilk: {milk}ml \nCoffee: {coffee}g \nMoney: ${money}")
 
@@ -58,9 +61,21 @@ def check_resources(choice):
         if resources[i] - ingredients[i] <= 0:
             return False
 
-    
     return True
-        
+
+def lack_of_resources(choice):
+    """
+    Compares current available required resource, and if after reduction,
+    is it greater than zero.
+    Loops the ingredients to calculate.
+
+    :takes user choice
+    :returns bool
+    """
+    ingredients = get_ingredients(choice)
+    for i in ingredients:
+        if resources[i] - ingredients[i] <= 0:
+            return i    
 
 def get_ingredients(choice):
     """
@@ -128,8 +143,8 @@ def give_change(payment, choice)-> int:
     if change >= 0:
         return change
 
-def update_resources(sum, choice) -> None:
-    money = (MENU[choice]["cost"])
+def update_resources(choice) -> None:
+    resources["money"] += float((MENU[choice]["cost"]))
 
     ingredients = get_ingredients(choice)
     for i in ingredients:
@@ -139,17 +154,9 @@ def update_resources(sum, choice) -> None:
 
 
 # Step 5.  Generate coffee and update resources. Then deduct the resources for the choice.
-"""        return f"Here is ${change} dollars in change."
-    else:
-        return "Sorry that's not enough money. Money refunded."""
+
 
 # Step 6. Only after all resources have been deducted, tell user, here is their drink. Enjoy.
 
 
-# main()
-# money += (MENU["latte"]["cost"])
-# print(money)
-
-update_resources(money, choice="latte")
-get_report(money)
-print(money)
+main()
