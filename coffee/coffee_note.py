@@ -108,7 +108,7 @@ def get_payment() -> float:
     }
     
     payment = 0
-
+    print("Please insert coins. ")
     for coin in coins:
         user_input = int(input(f"How many {coin}? "))
         payment += (coins[coin] * user_input)
