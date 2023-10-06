@@ -42,7 +42,7 @@ while game_is_on:
   segments[0].forward(20)
   segments[0].left(90)
 
-print("test")
+
 
 
 screen.exitonclick()
