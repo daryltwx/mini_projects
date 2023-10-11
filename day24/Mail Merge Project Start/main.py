@@ -12,15 +12,14 @@ PLACEHOLDER_NAME = "[name]"
 
 with open("/Users/Pandaphy/github/mini_projects/day24/Mail Merge Project Start/Input/Letters/starting_letter.txt") as letter_text:
     letter = letter_text.read()
-    print(letter)
 
 
 with open("/Users/Pandaphy/github/mini_projects/day24/Mail Merge Project Start/Input/Names/invited_names.txt") as name_list:
     names = name_list.read().split("\n")
-    print(names)
+    for name in names:
+        with open(
+                f"/Users/Pandaphy/github/mini_projects/day24/Mail Merge Project Start/Output/ReadyToSend/letter_for_{name}.txt",
+                "w") as list:
+            new_letter = letter.replace(PLACEHOLDER_NAME, name)
+            list.write(new_letter)
 
-
-for name in names:
-    with open(f"/Users/Pandaphy/github/mini_projects/day24/Mail Merge Project Start/Output/ReadyToSend/letter_for_{name}.txt", "w") as list:
-        new_letter = letter.replace(PLACEHOLDER_NAME, name)
-        list.write(new_letter)
