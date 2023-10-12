@@ -82,3 +82,20 @@
 import pandas
 
 data = pandas.read_csv("2018_Central_Park_Squirrel_Census_-_Squirrel_Data.csv")
+# To get specifically what are the unique values in the Series.
+primary_fur_colors = data["Primary Fur Color"].dropna().unique()
+fur_count = []
+# Using the unique values to count how many are in the Series.
+for color in primary_fur_colors:
+    print(color)
+    fur_color = len(data[data["Primary Fur Color"] == color])
+    fur_count.append(fur_color)
+
+data_dict = {
+    "Fur Color": primary_fur_colors,
+    "Count": fur_count
+}
+
+# Create a new DataFrame using both lists.
+df = pandas.DataFrame(data_dict)
+df.to_csv("squirrel_count2.csv")
