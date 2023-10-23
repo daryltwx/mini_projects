@@ -19,3 +19,54 @@ list_of_integer = [int(item) for item in list_of_strings]
 result = [item for item in list_of_integer if item%2 == 0]
 # Write your code above:
 print(result)
+
+
+###
+
+
+f = open("file1.txt", "r")
+file1 = f.readlines()
+ls = [int(num.rstrip()) for num in file1]
+
+f2 = open("file2.txt", "r")
+file2 = f2.readlines()
+ls2 = [int(num.rstrip()) for num in file2]
+
+
+list = ls + ls2
+
+result = [x for x in ls if x in ls2]
+# Not needed to add everything in a list, just compare each list.
+#result = [x for x in list if list.count(x) > 1]
+
+# Write your code above 👆
+print(result)
+
+
+
+###
+
+
+# Using list comprehension in US states game
+
+if answer_state == "Exit":
+    missing_states = []
+    for state in all_states:
+        if state not in guessed_states:
+            missing_states.append(state)
+    new_data = pandas.DataFrame(missing_states)
+    new_data.to_csv("states_to_learn.csv")
+    break
+
+if answer_state == "Exit":
+    missing_states = [state for state in all_states if state not in guessed_states]
+    new_data = pandas.DataFrame(missing_states)
+    new_data.to_csv("states_to_learn.csv")
+    break
+
+
+
+###
+
+# Dictionary Comprehension
+
