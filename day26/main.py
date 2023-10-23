@@ -48,7 +48,7 @@ print(result)
 
 
 # Using list comprehension in US states game
-
+"""
 if answer_state == "Exit":
     missing_states = []
     for state in all_states:
@@ -64,7 +64,7 @@ if answer_state == "Exit":
     new_data.to_csv("states_to_learn.csv")
     break
 
-
+"""
 
 ###
 
