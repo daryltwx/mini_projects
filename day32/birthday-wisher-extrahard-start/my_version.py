@@ -13,9 +13,9 @@ now = dt.datetime.now()
 to_day = now.day
 to_month = now.month
 
-MY_EMAIL = "aboutdaryl@gmail.com"
-MY_PASSWORD = "aerx pujl mani oouy"
-to_email = "dryalnat@gmail.com"
+MY_EMAIL = "[EMAIL HERE]"
+MY_PASSWORD = "[PASSWORD HERE]"
+to_email = "[EMAIL HERE]"
 
 print(now.date, now.month, now.year)
 

@@ -4,9 +4,9 @@ import random
 import smtplib
 
 
-MY_EMAIL = "aboutdaryl@gmail.com"
-MY_PASSWORD = "aerx pujl mani oouy"
-to_email = "dryalnat@gmail.com"
+MY_EMAIL = "[EMAIL HERE]"
+MY_PASSWORD = "[PASSWORD HERE]"
+to_email = "[EMAIL HERE]"
 
 now = dt.datetime.now()
 day_of_week = now.weekday()
