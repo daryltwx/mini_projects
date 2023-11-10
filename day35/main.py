@@ -4,7 +4,7 @@ import requests
 OWM_Endpoint = "https://api.openweathermap.org/data/2.5/weather"
 MY_LAT = 1.352083
 MY_LONG = 103.819839
-API_KEY = "8405ec3795cc1025cacfd53b1031bf99"
+API_KEY = "Your_API_Key_here"
 # account_sid = "Your_account_sid_here"
 # auth_token = "Your_auth_token_here"
 
