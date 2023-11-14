@@ -3,8 +3,8 @@ import spotipy
 from spotipy.oauth2 import SpotifyClientCredentials
 from bs4 import BeautifulSoup
 
-SPOTIPY_CLIENT_ID = "3d3d83ae18a04d339dccf0921cbbb15b"
-SPOTIPY_CLIENT_SECRET = "5e173e4d3fbb4bae8c503cf7edf9a4ad"
+SPOTIPY_CLIENT_ID = "YOUR CLIENT ID"
+SPOTIPY_CLIENT_SECRET = "YOUR SECRET"
 SPOTIPY_REDIRECT_URL = "google.com"
 
 URL = "https://www.billboard.com/charts/hot-100/"
